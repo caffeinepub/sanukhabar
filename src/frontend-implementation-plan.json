@@ -1,0 +1,249 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Sanukhabar news portal frontend (multi-category news site)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a responsive public news portal UI with Sanukhabar branding and a latest-articles home feed.",
+      "acceptanceCriteria": [
+        "Site header displays the brand name “Sanukhabar”.",
+        "Home page shows a list of latest news articles with headline, category, publish date, and short excerpt.",
+        "Layout is responsive and usable on mobile and desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the main app shell (layout + routing) for public browsing, including a responsive header that displays the “Sanukhabar” brand name and route wiring for the home feed. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Implement the Home page to fetch and render the latest articles list (headline, category label, publish date, short excerpt) and handle loading/empty/error states. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/news/ArticleCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable article list card used across lists (home/category/admin) to display headline, category, publish date, and excerpt in a responsive layout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useArticles.ts",
+          "operation": "create",
+          "description": "Add React Query hooks for fetching articles from the backend interface (latest list for public pages) and provide shared formatting helpers (e.g., date formatting) for UI. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add category navigation and category pages that filter articles by selected category.",
+      "acceptanceCriteria": [
+        "Backend supports creating and listing categories (e.g., Politics, Sports, Business, Technology, Entertainment, World).",
+        "Frontend shows category navigation (header and/or sidebar) and a dedicated category page that lists articles for that category.",
+        "Selecting a category filters articles to that category only."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useCategories.ts",
+          "operation": "create",
+          "description": "Add React Query hooks to fetch categories and expose them for navigation and filtering. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/CategoryNav.tsx",
+          "operation": "create",
+          "description": "Create a responsive category navigation component (header and/or sidebar) that lists categories and links to a dedicated category route. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/CategoryPage.tsx",
+          "operation": "create",
+          "description": "Implement a dedicated category page that loads the selected category and lists only its articles, including loading/empty/error states. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire category navigation into the layout and register the category route so selecting a category filters articles by category. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create article detail pages that display full article content with a clear not-found state.",
+      "acceptanceCriteria": [
+        "Clicking an article from any list opens an article detail page/route.",
+        "Detail page shows title, category, publish date, author (if present), cover image (if present), and body content.",
+        "If an article is not found, show a clear “Article not found” state."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ArticleDetailPage.tsx",
+          "operation": "create",
+          "description": "Implement the article detail page that fetches an article by ID, renders title/category/publish date/author/cover image/body, and shows a clear “Article not found” state when missing. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useArticle.ts",
+          "operation": "create",
+          "description": "Add a React Query hook for fetching a single article by ID and surface not-found vs error states for the UI. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the article detail route and ensure article cards/lists link to the detail route. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add authenticated admin UI (Internet Identity) for managing articles and categories with route protection.",
+      "acceptanceCriteria": [
+        "Admin routes are not accessible unless the user is authenticated.",
+        "Backend enforces authorization for create/update/delete operations (public users can only read).",
+        "Admin UI supports: create/edit/delete article; create/edit/delete category."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/auth/LoginButton.tsx",
+          "operation": "create",
+          "description": "Create a login/logout button using the selected authorization component’s frontend guidance (Internet Identity via useInternetIdentity) and clear cached React Query data on logout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Implement first-login user profile name capture using authorization component guidance (getCallerUserProfile/saveCallerUserProfile) and prevent modal flash by following the provided loading/isFetched pattern. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/AdminRoute.tsx",
+          "operation": "create",
+          "description": "Create an admin-only route guard that requires Internet Identity authentication and checks admin status via backend (e.g., isCallerAdmin/getCallerUserRole), showing an access-denied state when unauthorized. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminLayout.tsx",
+          "operation": "create",
+          "description": "Create a simple admin layout with navigation for Articles and Categories management, using the same site theme. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminArticlesPage.tsx",
+          "operation": "create",
+          "description": "Implement admin articles management UI: list, create, edit, delete using backend capabilities (createArticle/updateArticle/deleteArticle/getArticles) and handle authorization errors gracefully. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminCategoriesPage.tsx",
+          "operation": "create",
+          "description": "Implement admin categories management UI: list, create, edit, delete using backend capabilities (createCategory/updateCategory/deleteCategory/getCategories) and handle authorization errors gracefully. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useAdmin.ts",
+          "operation": "create",
+          "description": "Add hooks for admin checks and admin mutations (articles/categories create/edit/delete) built on useActor and React Query, including cache invalidation after changes. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire admin routes (e.g., /admin/articles and /admin/categories) through AdminRoute and place LoginButton/ProfileSetupModal appropriately in the UI; keep public browsing accessible without login. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add frontend search and sorting controls for article lists with empty states.",
+      "acceptanceCriteria": [
+        "Home (or a dedicated search view) includes a search input that filters articles by title (client-side or via backend query).",
+        "Users can sort or toggle between at least “Latest” and “Oldest” on article lists.",
+        "Empty states are handled (e.g., “No articles found”)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/news/ArticleListToolbar.tsx",
+          "operation": "create",
+          "description": "Create a toolbar component with a search input (title filter) and a sort toggle between “Latest” and “Oldest”, emitting state to the parent list pages. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add search + sort controls to the home list, implement client-side filtering by title and sort order, and show “No articles found” when appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/CategoryPage.tsx",
+          "operation": "modify",
+          "description": "Add search + sort controls to the category list, implement client-side filtering by title and sort order, and show “No articles found” when appropriate. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Apply a newspaper-inspired theme (off-white/charcoal/muted red) with clear typography hierarchy and consistent spacing.",
+      "acceptanceCriteria": [
+        "Theme is consistently applied across header, lists, detail pages, and admin pages.",
+        "Primary accent color is not blue or purple.",
+        "Typography clearly differentiates headlines, subheadings, metadata, and body text."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global theme tokens and base styles for a newspaper-inspired design (off-white background, charcoal text, muted red accent, serif headlines, sans-serif UI), ensuring consistency across public and admin pages. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions to support the newspaper palette and typography (no blue/purple accents) and ensure consistent spacing/typography utilities are available. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared layout wrapper that applies consistent spacing, typography hierarchy, and responsive structure used by public and admin layouts. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Adopt SiteLayout across routes (home/category/detail/admin) so the theme is applied consistently site-wide. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add generated Sanukhabar brand assets as static frontend files and render them in the UI.",
+      "acceptanceCriteria": [
+        "Generated images are stored under frontend/public/assets/generated and referenced directly by the frontend.",
+        "Header uses the generated logo asset.",
+        "Home page uses the generated hero/banner asset."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/sanukhabar-logo.dim_512x160.png",
+          "operation": "create",
+          "description": "Add the generated Sanukhabar wordmark logo asset as a static file to be referenced directly by the frontend UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/sanukhabar-hero.dim_1600x600.png",
+          "operation": "create",
+          "description": "Add the generated wide homepage hero/banner asset as a static file to be referenced directly by the frontend UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/sanukhabar-category-icons.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated category icons set as a static file to be referenced directly by the frontend UI."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "create",
+          "description": "Create a site header that renders the generated logo from frontend/public/assets/generated/sanukhabar-logo.dim_512x160.png and includes primary navigation (including categories and admin access). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Render the generated hero/banner from frontend/public/assets/generated/sanukhabar-hero.dim_1600x600.png near the top of the home page and ensure it remains responsive. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/CategoryNav.tsx",
+          "operation": "modify",
+          "description": "Optionally map the six categories to visual icon usage referencing frontend/public/assets/generated/sanukhabar-category-icons.dim_256x256.png while keeping navigation accessible and text-first. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire Header into the app layout so the logo is visible site-wide on public and admin pages. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

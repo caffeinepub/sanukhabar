@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.25rem;
+        /* Off-white background, charcoal text, muted red accent */
+        --background: 0.98 0.005 40;
+        --foreground: 0.25 0.01 20;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.01 20;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.01 20;
+        --primary: 0.45 0.15 25;
+        --primary-foreground: 0.98 0.005 40;
+        --secondary: 0.92 0.01 40;
+        --secondary-foreground: 0.25 0.01 20;
+        --muted: 0.94 0.01 40;
+        --muted-foreground: 0.50 0.02 20;
+        --accent: 0.92 0.01 40;
+        --accent-foreground: 0.25 0.01 20;
+        --destructive: 0.55 0.20 25;
+        --destructive-foreground: 0.98 0.005 40;
+        --border: 0.88 0.01 40;
+        --input: 0.88 0.01 40;
+        --ring: 0.45 0.15 25;
+        --chart-1: 0.646 0.222 41.116;
+        --chart-2: 0.6 0.118 184.704;
+        --chart-3: 0.398 0.07 227.392;
+        --chart-4: 0.828 0.189 84.429;
+        --chart-5: 0.769 0.188 70.08;
+    }
+
+    .dark {
+        --background: 0.18 0.01 20;
+        --foreground: 0.95 0.005 40;
+        --card: 0.22 0.01 20;
+        --card-foreground: 0.95 0.005 40;
+        --popover: 0.22 0.01 20;
+        --popover-foreground: 0.95 0.005 40;
+        --primary: 0.55 0.18 25;
+        --primary-foreground: 0.98 0.005 40;
+        --secondary: 0.28 0.01 20;
+        --secondary-foreground: 0.95 0.005 40;
+        --muted: 0.28 0.01 20;
+        --muted-foreground: 0.65 0.02 20;
+        --accent: 0.32 0.02 20;
+        --accent-foreground: 0.95 0.005 40;
+        --destructive: 0.60 0.22 25;
+        --destructive-foreground: 0.98 0.005 40;
+        --border: 0.32 0.01 20;
+        --input: 0.32 0.01 20;
+        --ring: 0.55 0.18 25;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', 'Georgia', serif;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+}

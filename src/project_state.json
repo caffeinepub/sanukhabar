@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a news portal website named “Sanukhabar” where users can find all types of news across multiple categories.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Sanukhabar wordmark logo, clean editorial style, transparent background (sanukhabar-logo.dim_512x160.png)\n- Wide homepage hero banner with subtle newspaper texture and abstract world/news motifs, no text (sanukhabar-hero.dim_1600x600.png)\n- Set of 6 simple editorial category icons (Politics, Sports, Business, Technology, Entertainment, World) in a consistent outline style, transparent backgrounds (sanukhabar-category-icons.dim_256x256.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-public-facing-sanukhabar-news-portal-frontend-with-a-responsive-layout-that-lets-users-browse-all-types-of-news",
+      "title": "Create a public-facing Sanukhabar news portal frontend with a responsive layout that lets users browse all types of news.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-news-categories-and-category-based-navigation-so-users-can-easily-find-different-types-of-news",
+      "title": "Implement news categories and category-based navigation so users can easily find different types of news.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-article-detail-pages-that-display-the-full-content-of-a-selected-news-article",
+      "title": "Implement article detail pages that display the full content of a selected news article.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-authenticated-admin-interface-for-publishing-news-articles-and-managing-categories-using-internet-identity",
+      "title": "Add an authenticated admin interface for publishing news articles and managing categories using Internet Identity.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-search-and-sorting-on-the-frontend-to-help-users-find-relevant-news-quickly",
+      "title": "Add basic search and sorting on the frontend to help users find relevant news quickly.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-newspaper-inspired-visual-theme-across-the-site-avoid-blue-purple-off-white-backgrounds-charcoal-text-muted-red-accent-clear-typography-hierarchy-serif-for-headlines-sans-serif-for-ui-and-consistent-spacing",
+      "title": "Apply a cohesive, newspaper-inspired visual theme across the site (avoid blue/purple): off-white backgrounds, charcoal text, muted red accent, clear typography hierarchy (serif for headlines, sans-serif for UI), and consistent spacing.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-static-brand-assets-for-sanukhabar-and-render-them-in-the-ui-from-frontend-public-assets-generated-do-not-serve-images-via-the-backend",
+      "title": "Generate and include static brand assets for Sanukhabar and render them in the UI from frontend/public/assets/generated (do not serve images via the backend).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create the Sanukhabar news portal website (public-facing site) to publish and browse news articles.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Support multiple news categories so users can find all types of news organized by category.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add backend storage and APIs for news articles, including creating, updating, deleting, listing (latest), listing by category, and fetching by ID.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Sanukhabar",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

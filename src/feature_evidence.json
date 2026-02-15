@@ -1,0 +1,161 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-public-facing-sanukhabar-news-portal-frontend-with-a-responsive-layout-that-lets-users-browse-all-types-of-news",
+      "featureTitle": "Create a public-facing Sanukhabar news portal frontend with a responsive layout that lets users browse all types of news.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/news/ArticleCard.tsx",
+        "frontend/src/hooks/useArticles.ts",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-news-categories-and-category-based-navigation-so-users-can-easily-find-different-types-of-news",
+      "featureTitle": "Implement news categories and category-based navigation so users can easily find different types of news.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/CategoryNav.tsx",
+        "frontend/src/hooks/useCategories.ts",
+        "frontend/src/pages/CategoryPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-article-detail-pages-that-display-the-full-content-of-a-selected-news-article",
+      "featureTitle": "Implement article detail pages that display the full content of a selected news article.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useArticle.ts",
+        "frontend/src/pages/ArticleDetailPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-authenticated-admin-interface-for-publishing-news-articles-and-managing-categories-using-internet-identity",
+      "featureTitle": "Add an authenticated admin interface for publishing news articles and managing categories using Internet Identity.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/auth/AdminRoute.tsx",
+        "frontend/src/components/auth/LoginButton.tsx",
+        "frontend/src/components/auth/ProfileSetupModal.tsx",
+        "frontend/src/hooks/useAdmin.ts",
+        "frontend/src/pages/admin/AdminArticlesPage.tsx",
+        "frontend/src/pages/admin/AdminCategoriesPage.tsx",
+        "frontend/src/pages/admin/AdminLayout.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-basic-search-and-sorting-on-the-frontend-to-help-users-find-relevant-news-quickly",
+      "featureTitle": "Add basic search and sorting on the frontend to help users find relevant news quickly.",
+      "files": [
+        "frontend/src/components/news/ArticleListToolbar.tsx",
+        "frontend/src/pages/CategoryPage.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-cohesive-newspaper-inspired-visual-theme-across-the-site-avoid-blue-purple-off-white-backgrounds-charcoal-text-muted-red-accent-clear-typography-hierarchy-serif-for-headlines-sans-serif-for-ui-and-consistent-spacing",
+      "featureTitle": "Apply a cohesive, newspaper-inspired visual theme across the site (avoid blue/purple): off-white backgrounds, charcoal text, muted red accent, clear typography hierarchy (serif for headlines, sans-serif for UI), and consistent spacing.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-generate-and-include-static-brand-assets-for-sanukhabar-and-render-them-in-the-ui-from-frontend-public-assets-generated-do-not-serve-images-via-the-backend",
+      "featureTitle": "Generate and include static brand assets for Sanukhabar and render them in the UI from frontend/public/assets/generated (do not serve images via the backend).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/CategoryNav.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

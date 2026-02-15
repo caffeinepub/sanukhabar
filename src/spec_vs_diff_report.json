@@ -1,0 +1,104 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T05:39:55.710Z",
+  "summary": "Diff adds a Motoko backend actor with category/article CRUD (partially shown) plus a React/TanStack Router frontend with category navigation, article card UI, admin route guard using Internet Identity, and a newspaper-inspired theme. However, several BuildRequest requirements are either not evidenced (due to truncation/omissions) or appear unimplemented (notably stable storage + paginated APIs + required article fields, and generated static assets).",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "Articles are persisted in canister state and survive canister upgrades (stable storage).",
+      "reason": "The backend shows in-memory Maps for categories/articles/userProfiles, but the diff summary does not show any stable variables or postupgrade/preupgrade logic to persist data across upgrades.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "APIs exist for: listLatest (paginated), listByCategory (paginated), getById, create, update, delete.",
+      "reason": "Frontend hooks call non-paginated methods like getArticles() and getArticlesByCategory(), and the visible backend section shows createCategory/updateCategory/deleteCategory/getCategories and begins createArticle but does not evidence listLatest/listByCategory pagination APIs as specified.",
+      "evidence": [
+        "frontend/src/hooks/useArticles.ts",
+        "frontend/src/hooks/useArticle.ts",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Article record includes at least: id, title, categoryId, excerpt, content, createdAt/updatedAt timestamps, and optional coverImageUrl.",
+      "reason": "The backend ArticleState shown uses fields (id,title,content,author,category,publishedAt,imageUrl) and does not evidence excerpt, createdAt/updatedAt, categoryId naming, or coverImageUrl naming.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "Generate and include static brand assets under frontend/public/assets/generated (logo, hero banner, category icons) and reference them directly from the frontend.",
+      "reason": "The header references a logo path under /assets/generated, but the diff summary does not show any added image files under frontend/public/assets/generated, nor any reference to the hero banner or the 6 category icons.",
+      "evidence": [
+        "frontend/src/components/layout/Header.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "User profile management (get/save caller profile) and a mandatory profile setup modal prompting for a name after login.",
+      "reason": "BuildRequest does not mention user profiles or onboarding; admin/auth requirement is limited to Internet Identity gating for admin CRUD.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/auth/ProfileSetupModal.tsx",
+        "frontend/src/hooks/useAdmin.ts"
+      ]
+    },
+    {
+      "description": "Access-control initialization via a secret URL parameter (caffeineAdminToken) and an actor method _initializeAccessControlWithSecret.",
+      "reason": "BuildRequest specifies Internet Identity for authentication/authorization but does not request any secret-token bootstrap mechanism via URL parameters.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Footer includes social media links/icons and a promotional backlink to caffeine.ai.",
+      "reason": "Not requested in requirements and adds extra UI/content beyond the Sanukhabar portal scope.",
+      "evidence": [
+        "frontend/src/components/layout/Footer.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.66,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/auth/AdminRoute.tsx",
+    "frontend/src/components/auth/LoginButton.tsx",
+    "frontend/src/components/auth/ProfileSetupModal.tsx",
+    "frontend/src/components/layout/CategoryNav.tsx",
+    "frontend/src/components/layout/Footer.tsx",
+    "frontend/src/components/layout/Header.tsx",
+    "frontend/src/components/layout/SiteLayout.tsx",
+    "frontend/src/components/news/ArticleCard.tsx",
+    "frontend/src/components/news/ArticleListToolbar.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useAdmin.ts",
+    "frontend/src/hooks/useArticle.ts",
+    "frontend/src/hooks/useArticles.ts",
+    "frontend/src/hooks/useCategories.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/ArticleDetailPage.tsx",
+    "frontend/src/pages/CategoryPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/admin/AdminArticlesPage.tsx",
+    "frontend/src/pages/admin/AdminCategoriesPage.tsx",
+    "frontend/src/pages/admin/AdminLayout.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
